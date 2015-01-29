@@ -12,8 +12,11 @@ library(reshape2)
 
 ##### FIRST: DEAL WITH THE DATA
 
-dat <- read.table("~/Documents/GITHUB/cso002code_BrazilTradeOffsR/Fig 3 PNAS version/resultscombotable3D.txt", header = TRUE)
+dat <- read.table("~/Documents/GITHUB/cso002code_BrazilTradeOffsR/Fig 3 PNAS version/resultscombotable.txt", header = TRUE)
 attach(dat)
+
+# subset only the data that I want to look at
+dat <- subset(dat, dat$SimulationFactor == "AvoidProtAreas")
 
 
 
@@ -191,27 +194,27 @@ dev.off()
 
 
 
-
-
-# larger fonts
-
-
-plotf1 <- ggplot(dat, aes(x=wC, y=-EmittedC)) + geom_point(colour = "blue", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Tg Carbon Emitted") + xlab("Carbon Storage Priority Level") + theme(legend.position="none") + ylim(1.25e10,3.6e10) + geom_text(aes(label=paste("ρ =", round(cor1t$estimate,4), cor_stars[1])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
-
-plotf2 <- ggplot(dat, aes(x=wC, y=HabAvgImpac)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Species Ranges Affected") + xlab("Carbon Storage Priority Level") + theme(legend.position="none") + ylim(475,1450) + geom_text(aes(label=paste("ρ =", round(cor2t$estimate,4), cor_stars[2])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
-
-plotf3 <- ggplot(dat, aes(x=wC, y=ClimRegIndexAvgImpac)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Regional Climate Index") + xlab("Carbon Storage Priority Level") + theme(legend.position="none") + ylim(0.15,0.7) + geom_text(aes(label=paste("ρ =", round(cor3t$estimate,4), cor_stars[3])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
-
-plotf4 <- ggplot(dat, aes(x=wB, y=-EmittedC)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Tg Carbon Emitted") + xlab("Habitat Priority Level") + theme(legend.position="none") + ylim(1.25e10,3.6e10) + geom_text(aes(label=paste("ρ =", round(cor4t$estimate,4), cor_stars[4])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
-
-plotf5 <- ggplot(dat, aes(x=wB, y=HabAvgImpac)) + geom_point(colour = "blue", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Species Ranges Affected") + xlab("Habitat Priority Level") + theme(legend.position="none") + ylim(475,1450) + geom_text(aes(label=paste("ρ =", round(cor5t$estimate,4), cor_stars[5])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
-
-plotf6 <- ggplot(dat, aes(x=wB, y=ClimRegIndexAvgImpac)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Regional Climate Index") + xlab("Habitat Priority Level") + theme(legend.position="none") + ylim(0.15,0.7) + geom_text(aes(label=paste("ρ =", round(cor6t$estimate,4), cor_stars[6])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
-
-plotf7 <- ggplot(dat, aes(x=wCl, y=-EmittedC)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Tg Carbon Emitted") + xlab("Regional Climate Priority Level") + theme(legend.position="none") + ylim(1.25e10,3.6e10) + geom_text(aes(label=paste("ρ =", round(cor7t$estimate,4), cor_stars[7])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
-
-plotf8 <- ggplot(dat, aes(x=wCl, y=HabAvgImpac)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Species Ranges Affected") + xlab("Regional Climate Priority Level") + theme(legend.position="none") + ylim(475,1450) + geom_text(aes(label=paste("ρ =", round(cor8t$estimate,4), cor_stars[8])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
-
-plotf9 <- ggplot(dat, aes(x=wCl, y=ClimRegIndexAvgImpac)) + geom_point(colour = "blue", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Regional Climate Index") + xlab("Regional Climate Priority Level") + theme(legend.position="none") + ylim(0.15,0.7) + geom_text(aes(label=paste("ρ =", round(cor9t$estimate,4), cor_stars[9])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
-
-
+# 
+# 
+# # larger fonts
+# 
+# 
+# plotf1 <- ggplot(dat, aes(x=wC, y=-EmittedC)) + geom_point(colour = "blue", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Tg Carbon Emitted") + xlab("Carbon Storage Priority Level") + theme(legend.position="none") + ylim(1.25e10,3.6e10) + geom_text(aes(label=paste("ρ =", round(cor1t$estimate,4), cor_stars[1])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
+# 
+# plotf2 <- ggplot(dat, aes(x=wC, y=HabAvgImpac)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Species Ranges Affected") + xlab("Carbon Storage Priority Level") + theme(legend.position="none") + ylim(475,1450) + geom_text(aes(label=paste("ρ =", round(cor2t$estimate,4), cor_stars[2])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
+# 
+# plotf3 <- ggplot(dat, aes(x=wC, y=ClimRegIndexAvgImpac)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Regional Climate Index") + xlab("Carbon Storage Priority Level") + theme(legend.position="none") + ylim(0.15,0.7) + geom_text(aes(label=paste("ρ =", round(cor3t$estimate,4), cor_stars[3])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
+# 
+# plotf4 <- ggplot(dat, aes(x=wB, y=-EmittedC)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Tg Carbon Emitted") + xlab("Habitat Priority Level") + theme(legend.position="none") + ylim(1.25e10,3.6e10) + geom_text(aes(label=paste("ρ =", round(cor4t$estimate,4), cor_stars[4])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
+# 
+# plotf5 <- ggplot(dat, aes(x=wB, y=HabAvgImpac)) + geom_point(colour = "blue", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Species Ranges Affected") + xlab("Habitat Priority Level") + theme(legend.position="none") + ylim(475,1450) + geom_text(aes(label=paste("ρ =", round(cor5t$estimate,4), cor_stars[5])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
+# 
+# plotf6 <- ggplot(dat, aes(x=wB, y=ClimRegIndexAvgImpac)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Regional Climate Index") + xlab("Habitat Priority Level") + theme(legend.position="none") + ylim(0.15,0.7) + geom_text(aes(label=paste("ρ =", round(cor6t$estimate,4), cor_stars[6])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
+# 
+# plotf7 <- ggplot(dat, aes(x=wCl, y=-EmittedC)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Tg Carbon Emitted") + xlab("Regional Climate Priority Level") + theme(legend.position="none") + ylim(1.25e10,3.6e10) + geom_text(aes(label=paste("ρ =", round(cor7t$estimate,4), cor_stars[7])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
+# 
+# plotf8 <- ggplot(dat, aes(x=wCl, y=HabAvgImpac)) + geom_point(colour = "black", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Species Ranges Affected") + xlab("Regional Climate Priority Level") + theme(legend.position="none") + ylim(475,1450) + geom_text(aes(label=paste("ρ =", round(cor8t$estimate,4), cor_stars[8])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
+# 
+# plotf9 <- ggplot(dat, aes(x=wCl, y=ClimRegIndexAvgImpac)) + geom_point(colour = "blue", shape=1) + geom_smooth(size = 1.5, fill="#333333", colour="black") + ylab("Regional Climate Index") + xlab("Regional Climate Priority Level") + theme(legend.position="none") + ylim(0.15,0.7) + geom_text(aes(label=paste("ρ =", round(cor9t$estimate,4), cor_stars[9])),x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, data = data.frame()) + theme(axis.text=element_text(size=18),axis.title=element_text(size=24))
+# 
+# 
