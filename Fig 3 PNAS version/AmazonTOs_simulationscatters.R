@@ -16,7 +16,7 @@ dat <- read.table("~/Documents/GITHUB/cso002code_BrazilTradeOffsR/Fig 3 PNAS ver
 attach(dat)
 
 # subset only the data that I want to look at
-dat <- subset(dat, dat$SimulationFactor == "AvoidProtAreas")
+dat <- subset(dat, dat$SimulationFactor == "AllLand")
 
 
 
