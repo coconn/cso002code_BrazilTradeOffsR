@@ -7,6 +7,8 @@
 # 1) use the .txt made in build_resultscombotable.r
 # 2) print one set of figures based on the "AllLand" simulation (don't consider protected areas)
 # 3) print one set of figures based on the "AvoidProtAreas" simulation (do consider protected areas)
+#
+# see AmazonTOs_simulationscatters-simscombined.R for this version:
 # 4) print one set of figures in which both simulations are overlaid on the same grids
 #
 
@@ -208,12 +210,6 @@ dev.off()
 detach(dat2)
 # zen
 zen()
-
-
-
-
-
-
 
 
 
