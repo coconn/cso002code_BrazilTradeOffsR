@@ -62,15 +62,22 @@ Here are the .r files to think about:
 
 <li>this script includes: </li>
 
+<ul>
+
 <li>1) use the .txt made in build_resultscombotable.r</li>
 
 <li>4) print one set of figures in which both simulations are overlaid on the same grids</li>
 
+</ul>
+
 <li>see AmazonTOs_simulationscatters.R for these versions:</li>
 
+<ul>
 <li>2) print one set of figures based on the "AllLand" simulation (don't consider protected areas)</li>
 
 <li>3) print one set of figures based on the "AvoidProtAreas" simulation (do consider protected areas)</li>
+
+</ul>
 
 </ul>
 
