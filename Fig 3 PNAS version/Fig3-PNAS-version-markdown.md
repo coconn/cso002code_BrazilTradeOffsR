@@ -56,6 +56,11 @@ Here are the .r files to think about:
 
 ## AmazonTOs_simulationscatters-simscombined.R
 
+* Bullet
+      * Bullet i further
+* Bullet
+* Bullet
+      
 <ul>
 
 <li>deal with the simulation scatterplots (from the scenario experiments)</li>
