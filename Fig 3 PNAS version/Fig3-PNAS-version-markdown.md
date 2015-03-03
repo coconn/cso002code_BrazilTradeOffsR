@@ -32,7 +32,7 @@ Here are the .r files to think about:
 ## AmazonTOs_simulationscatters-simscombined.R
 
 * deal with the simulation scatterplots (from the scenario experiments)
-*this script includes: 
+* this script includes: 
       * 1) use the .txt made in build_resultscombotable.r
       * 4) print one set of figures in which both simulations are overlaid on the same grids
 * see AmazonTOs_simulationscatters.R for these versions:
