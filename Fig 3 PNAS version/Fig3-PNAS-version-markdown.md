@@ -41,7 +41,7 @@ Here are the .r files to think about:
 
 ## images
 
-![practice relative path](/Fig 3 PNAS version/SimulationScatters/AllLand/AmazonTOs_simulationscatters.png =100x100)
+![practice relative path](/Fig 3 PNAS version/SimulationScatters/AllLand/AmazonTOs_simulationscatters.png)
 
 
 
