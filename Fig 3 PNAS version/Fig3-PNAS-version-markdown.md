@@ -28,6 +28,14 @@ Here are the .r files to think about:
 * see AmazonTOs_simulationscatters-simscombined.R for this version:
       * 4) print one set of figures in which both simulations are overlaid on the same grids
 
+### images
+
+* figure based on the "AllLand" simulation (folder includes hires version)
+![practice relative path](/Fig 3 PNAS version/SimulationScatters/AllLand/AmazonTOs_simulationscatters.png)
+
+* figure based on the "AvoidProtAreas" simulation (folder also includes hires version)
+![practice relative path](/Fig 3 PNAS version/SimulationScatters/AvoidProtAreas/AmazonTOs_simulationscatters.png)
+
 
 ## AmazonTOs_simulationscatters-simscombined.R
 
@@ -39,9 +47,6 @@ Here are the .r files to think about:
       * 2) print one set of figures based on the "AllLand" simulation (don't consider protected areas)
       * 3) print one set of figures based on the "AvoidProtAreas" simulation (do consider protected areas)
 
-## images
-
-![practice relative path](/Fig 3 PNAS version/SimulationScatters/AllLand/AmazonTOs_simulationscatters.png)
 
 
 
