@@ -1,5 +1,6 @@
+# Markdown Cheat Sheet: code for Figure 3
+
 ## Introduction
-===========================
 
 This is a markdown file where I explain how all the code fits together for the simulation scatterplot figure for the PNAS version of the Amazon tradeoffs paper.
 
@@ -10,7 +11,7 @@ Here are the .r files to think about:
 
 ## build_resultscombotable.R
 
-<ol>
+<ul>
 
 <li>automate building resultscombotable.txt (which Christine previously built by hand after running simulations in excel)</li>
 
@@ -18,12 +19,12 @@ Here are the .r files to think about:
 
 <li>in matlab, see GESexperiment_longfile_whittled.m and GESexperiment_longfile_whittled_parks.m (where the simulations get run and the AmazonTOs_simulationresults.csv files get made)</li>
 
-</ol>
+</ul>
 
 
 ## AmazonTOs_simulationscatters.R
 
-<ol>
+<ul>
 
 <li>deal with the simulation scatterplots (from the scenario experiments)</li>
 
@@ -41,13 +42,13 @@ Here are the .r files to think about:
 
 <li>4) print one set of figures in which both simulations are overlaid on the same grids</li>
 
-</ol>
+</ul>
 
 
 
 ## AmazonTOs_simulationscatters-simscombined.R
 
-<ol>
+<ul>
 
 <li>deal with the simulation scatterplots (from the scenario experiments)</li>
 
@@ -63,7 +64,7 @@ Here are the .r files to think about:
 
 <li>3) print one set of figures based on the "AvoidProtAreas" simulation (do consider protected areas)</li>
 
-</ol>
+</ul>
 
 
 
