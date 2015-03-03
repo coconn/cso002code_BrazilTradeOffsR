@@ -82,7 +82,9 @@ Here are the .r files to think about:
 </ul>
 
 
+## images
 
+![practice relative path](/SimulationScatters/AllLand/AmazonTOs_simulationscatters.png)
 
 
 
