@@ -47,6 +47,8 @@ Here are the .r files to think about:
       * 2) print one set of figures based on the "AllLand" simulation (don't consider protected areas)
       * 3) print one set of figures based on the "AvoidProtAreas" simulation (do consider protected areas)
 
+* figure that combined the points from the two simulations (folder also includes hires version)
+![practice relative path](/Fig 3 PNAS version/SimulationScatters/SimsCombined/AmazonTOs_simulationscatters.png)
 
 
 
