@@ -1,10 +1,9 @@
-# AmazonTOs_simulation3Dfrontier.R
+# AmazonTOs_simulation3Dfrontier_testing.R
 # CSO, UMN
 # 25/6/2013
 # deal with the new scenario experiment results --> make a 3-D efficiency frontier
 
-# this is the .r file where I try to get a working figure up and running
-
+# this is the .r file where I tried out a bunch of things when I was first trying to make a 3-D figure that was viable
 
 # bring in necessary things
 library(gridExtra)
