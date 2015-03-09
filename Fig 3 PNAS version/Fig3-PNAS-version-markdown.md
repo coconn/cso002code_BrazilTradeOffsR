@@ -1,3 +1,7 @@
+---
+output: html_document
+---
+
 # Markdown Cheat Sheet: code for Figure 3
 
 ## Introduction
