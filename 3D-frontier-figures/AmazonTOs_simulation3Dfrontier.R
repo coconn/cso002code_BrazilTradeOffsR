@@ -1,6 +1,6 @@
 # AmazonTOs_simulation3Dfrontier.R
 # CSO, UMN
-# 25/6/2013
+# feb-2015
 # deal with the new scenario experiment results --> make a 3-D efficiency frontier
 
 # this is the .r file where I try to get a working figure up and running
@@ -24,8 +24,29 @@ library(scatterplot3d)
 
 ##### FIRST: DEAL WITH THE DATA
 
-dat <- read.table("~/Documents/GITHUB/cso002code_BrazilTradeOffsR/Fig 3 PNAS version/resultscombotable3D.txt", header = TRUE)
-attach(dat)
+dat <- read.table("~/Documents/GITHUB/cso002code_BrazilTradeOffsR/Fig 3 PNAS version/resultscombotable.txt", header = TRUE)
+
+# subset only the data that I want to look at
+dat <- subset(dat, dat$SimulationFactor == "AllLand")
+# attach(dat)
+
+
+##### SECOND: Scatter with third dim as color
+
+ggplot(dat, aes(x = -EmittedC, y = HabAvgImpac, colour=ClimRegIndexAvgImpac)) + geom_point() + scale_colour_gradient(low = "blue", high="red")
+
+
+##### THIRD: True efficiency frontier with bin of impact for third dim
+
+# define the impact levels for the third dim
+
+
+# subset the data
+datsub <- subset(dat, dat$ClimRegIndexAvgImpac < 0.6 & dat$ClimRegIndexAvgImpac >= 0.56)
+
+# plot 2-d scatter
+ggplot(datsub, aes(x = -EmittedC, y = HabAvgImpac, colour=ClimRegIndexAvgImpac)) + geom_point() + scale_colour_gradient(low = "blue", high="red")
+
 
 
 
@@ -137,41 +158,6 @@ pp <- with(dat, scatter3D(x = EmittedC, y = HabAvgImpac, z = ClimRegIndexAvgImpa
 
 
 
-panelfirst <- function(pmat) {
-  zmin <- 0
-  XY <- trans3D(ClimRegIndexAvgImpac, HabAvgImpac, 
-                z = rep(zmin, nrow(dat)), pmat = pmat)
-  scatter2D(XY$x, XY$y, pch = ".", 
-            cex = 5, col="#999999", add = TRUE, colkey = FALSE)
-  
-  xmin <- max(HabAvgImpac)
-  XY <- trans3D(x = rep(xmin, nrow(dat)), y = ClimRegIndexAvgImpac, 
-                z = -EmittedC, pmat = pmat)
-  
-  scatter2D(XY$x, XY$y, colvar = -EmittedC, pch = ".", 
-            cex = 3, add = TRUE, colkey = FALSE)
-}
-
-pp <- with(dat, scatter3D(x = ClimRegIndexAvgImpac, y = HabAvgImpac, z = -EmittedC, 
-                          colvar = -EmittedC, 
-                          xlim = c(0.15,0.7), ylim = c(500,1600), zlim = c(0,4e10),
-                          pch = 16, cex = 1.2, xlab = "ClimRegIndexAvgImpac", ylab = "HabAvgImpac", 
-                          zlab = "-EmittedC", clab = c("EmC"),
-                          main = "3-D Eff Frontier", ticktype = "detailed", 
-                          panel.first = panelfirst, theta = 20, phi=0, d = 2, 
-                          colkey = list(length = 0.5, width = 0.5, cex.clab = 0.75)))
-
-
-
-
-
-
-## double check the clouds by making sure that the pairwise scatters make sense
-dir="~/Dropbox/MANUSCRIPT/First attempt - Nature submission/AmazonTOs MS - Figures and tables/Figures and Tables/Figure 3/R Bargraph/PNAS version/"
-setwd(dir)
-getwd()
-# set save situation
-png(file = "AmazonTOs_simulation3Dfrontier_pairwisescatters.png",width=10,height=10,units="in",res=300)
 # make plot
 par(mfrow=c(2,3))
 plot(ClimRegIndexAvgImpac,EmittedC)
@@ -181,7 +167,6 @@ plot(ClimRegIndexAvgImpac,HabAvgImpac)
 plot(EmittedC,ClimRegIndexAvgImpac)
 plot(EmittedC,HabAvgImpac)
 plot(HabAvgImpac,ClimRegIndexAvgImpac)
-dev.off()
 
 
 
@@ -209,40 +194,6 @@ dev.off()
 #                        panel.first = panelfirst, theta = 10, d = 2, 
 #                        colkey = list(length = 0.5, width = 0.5, cex.clab = 0.75)))
 # 
-
-
-
-##### FINALLY: SAVE FIGURE
-# This is the one to save!
-
-dir="~/Dropbox/MANUSCRIPT/First attempt - Nature submission/AmazonTOs MS - Figures and tables/Figures and Tables/Figure 3/R Bargraph/PNAS version/"
-setwd(dir)
-getwd()
-
-# must save this way, because ggsave only works with ggplot items and it doesn't understand that gB, etc. are based on ggplot items (since they are currently grobs, the units of grid.arrange)
-png(file = "AmazonTOs_simulation3Dfrontier.png",width=10,height=10,units="in",res=300) # tiff(file=...) also an option
-# put the final fig code here
-dev.off()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
