@@ -200,6 +200,9 @@ with(newdat,surface3d(unique(ClimRegIndexAvgImpac),unique(HabAvgImpac),pp,alpha=
 
 rgl.postscript("persp3dd.pdf","pdf")
 
+# notes from sarah
+# don't invert the axes
+
 
 
 
