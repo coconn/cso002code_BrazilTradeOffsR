@@ -14,9 +14,9 @@ library(reshape2)
 # install.packages("plot3D")
 # install.packages("rgl")
 # install.packages("scatterplot3d")
-library(plot3D)
-library(rgl)
-library(scatterplot3d)
+#library(plot3D)
+#library(rgl)
+#library(scatterplot3d)
 #example(persp3D)
 #example(surf3D) 
 #example(scatter3D)
@@ -31,7 +31,7 @@ dat <- subset(dat, dat$SimulationFactor == "AllLand")
 # attach(dat)
 
 # where to save things
-dirsave="~/Documents/GITHUB/cso002code_BrazilTradeOffsR/3D-frontier-figures/EfficiencyFrontiers/"
+dirsave="~/Documents/GITHUB/cso002code_BrazilTradeOffsR/3D-frontier-figures/Fig 4 PNAS Version/"
 setwd(dirsave)
 
 
@@ -41,12 +41,26 @@ setwd(dirsave)
 
 ## biodiv and regclim on the axes
 
+# annotation info
+simtext <- ifelse(as.character(unique(dat$SimulationFactor))=="AllLand", "All Land", "Avoid Prot Areas")
+annotatelabel <- paste("Simulation =", simtext)
+
 # efficiency frontier, no limit on third variable
 # reverse axes so shape is concave
-png(file = "eff-frontier-6.png",width=10,height=10,units="in",res=150)
+png(file = "Figure4-eff-frontier.png",width=10,height=10,units="in",res=150)
+
 # make plot
-ggplot(dat, aes(x = HabAvgImpac, y = ClimRegIndexAvgImpac, colour=-EmittedC)) + geom_point() + scale_colour_gradient(low = "blue", high="red") + scale_y_reverse() + scale_x_reverse()
+ggplot(dat, aes(x = HabAvgImpac, y = ClimRegIndexAvgImpac, colour=-EmittedC)) + geom_point(size=3, shape=1) + scale_colour_gradient(low = "blue", high="red", name ="Tg Carbon \nEmitted") + scale_y_reverse() + scale_x_reverse() + xlab("Species Ranges Affected") + ylab("Regional Climate Index") + theme_bw() + geom_density2d(colour="#252525", size=0.6) + annotate("text", x=-Inf, y=-Inf, hjust=1.05, vjust=1.8, label = annotatelabel,  fontface = 3)
+
 dev.off()
+
+# other color options:
+# red to orange
+# + scale_colour_gradient(low = "#feb24c", high="#f03b20", name ="Tg Carbon \nEmitted") 
+
+
+
+
 
 # opposite axes if desired
 # png(file = "eff-frontier-5.png",width=10,height=10,units="in",res=150)
